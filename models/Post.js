@@ -21,8 +21,8 @@ Post.init(
             allowNull:false,
         },
         creator: {
-            type:DataTypes.STRING,
-            allowNull: false,
+            type:DataTypes.INTEGER,
+            allowNull: true,
             references: {
                 model: 'user',
                 key: 'id'
