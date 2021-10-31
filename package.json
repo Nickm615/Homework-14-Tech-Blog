@@ -1,0 +1,28 @@
+{
+  "name": "homework-14-tech-blog",
+  "version": "1.0.0",
+  "description": "Fullstack Tech Blog. Bootcamp Homework Assignment.",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js",
+    "seeds": "node seeds/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nickm615/Homework-14-Tech-Blog.git"
+  },
+  "author": "Nick Margaritondo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nickm615/Homework-14-Tech-Blog/issues"
+  },
+  "homepage": "https://github.com/Nickm615/Homework-14-Tech-Blog#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "handlebars": "^4.7.7",
+    "passport": "^0.5.0",
+    "sequelize": "^6.8.0"
+  }
+}
