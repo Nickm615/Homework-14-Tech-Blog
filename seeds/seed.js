@@ -1,7 +1,8 @@
 const sequelize = require('../config/connection');
-const { User } = require('../models');
+const { User, Post } = require('../models');
 
 const userData = require('./userData.json');
+const postData = require('./postData.json')
 //function to seed database
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -10,6 +11,7 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
+  await Post.bulkCreate(postData);
 //bulk creates entries in the User table using json objects stored in userData.json.
 //We know it will implement the create hook because we set individual hooks to true
   process.exit(0);
