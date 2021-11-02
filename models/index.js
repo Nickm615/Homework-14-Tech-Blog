@@ -12,13 +12,13 @@ Post.belongsTo(User, {
     foreignKey: 'creator'
 });
 
-User.hasMany(Comment, {
-    foreignKey: 'creator'
-});
+// User.hasMany(Comment, {
+//     foreignKey: 'creator'
+// });
 
-Comment.hasOne(Post, {
-    foreignKey: 'originalPost'
-})
+// Comment.hasOne(Post, {
+//     foreignKey: 'originalPost'
+// })
 // User.hasMany(Post, {
 //     foreignKey: 'creator',
 //     onDelete: 'SET NULL',

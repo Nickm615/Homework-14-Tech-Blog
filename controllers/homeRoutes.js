@@ -49,12 +49,11 @@ router.get('/comment', (req, res) => {
     } else res.render('login')
 })
 
-router.post('/comment', (req, res) =>{
+router.post('/comment', async(req, res) =>{
         try {
           const dbCommentData = await Comment.create({
             creator: req.body.creator,
-            content: req.body.content,
-            createdOn: req.body.createdOn
+            content: req.body.content
           });
           res.status(200).json(dbCommentData);
       
