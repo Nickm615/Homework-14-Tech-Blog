@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post } = require('../models');
+const { User, Post, Comment } = require('../models');
 const checkAuth = require('../utils/auth');
 
 router.get('/', async (req, res) =>{
@@ -33,5 +33,37 @@ router.get('/login', (req, res) => {
     }
     res.render('login')
 })
+
+router.get('/dashboard', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('dashboard')
+        return
+    } else res.render('login')
+})
+
+
+router.get('/comment', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('comment')
+        return
+    } else res.render('login')
+})
+
+router.post('/comment', (req, res) =>{
+        try {
+          const dbCommentData = await Comment.create({
+            creator: req.body.creator,
+            content: req.body.content,
+            createdOn: req.body.createdOn
+          });
+          res.status(200).json(dbCommentData);
+      
+          // Set up sessions with a 'loggedIn' variable set to `true`
+
+        } catch (err) {
+          console.log(err);
+          res.status(500).json(err);
+        }
+      });
 
 module.exports = router;

@@ -1,5 +1,6 @@
 const User = require('./User');
-const Post = require('./Post')
+const Post = require('./Post');
+const Comment = require('./Comment');
 //One to many relationship between posts and users
 User.hasMany(Post, {
     foreignKey: 'creator',
@@ -11,6 +12,13 @@ Post.belongsTo(User, {
     foreignKey: 'creator'
 });
 
+User.hasMany(Comment, {
+    foreignKey: 'creator'
+});
+
+Comment.hasOne(Post, {
+    foreignKey: 'originalPost'
+})
 // User.hasMany(Post, {
 //     foreignKey: 'creator',
 //     onDelete: 'SET NULL',
@@ -18,4 +26,4 @@ Post.belongsTo(User, {
 // })
 
 
-module.exports = { User, Post };
+module.exports = { User, Post, Comment };

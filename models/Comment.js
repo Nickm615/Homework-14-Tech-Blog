@@ -1,10 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class Post extends Model{};
+class Comment extends Model{};
 
-Post.init(
+Comment.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -12,15 +11,11 @@ Post.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        title: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         content: {
             type: DataTypes.STRING,
             allowNull:false,
-        },
 
+        },
         creator: {
             type:DataTypes.INTEGER,
             allowNull: true,
@@ -29,6 +24,14 @@ Post.init(
                 key: 'id'
             },
         },
+        originalPost: {
+            type:DataTypes.INTEGER,
+            allowNull: true,
+            references: {
+                model: 'post',
+                key: 'id'
+            },
+        }
     },
     {
         sequelize,
@@ -37,7 +40,6 @@ Post.init(
         underscored:true,
         modelName: 'post'
     }
-);
+)
 
-
-module.exports = Post
+module.exports = Comment;
