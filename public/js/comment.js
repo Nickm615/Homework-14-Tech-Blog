@@ -3,6 +3,7 @@ const commentFormHandler = async (event) => {
 
     const content = document.querySelector('#comment').value.trim();
     const creator = req.session.name
+    console.log('content ='+content)
 
     if (content) {
         const response = await fetch('/comment', {

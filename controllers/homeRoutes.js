@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
-const checkAuth = require('../utils/auth');
+const { checkAuth, format_date } = require('../utils/helpers');
 
 router.get('/', async (req, res) =>{
     try{
@@ -15,6 +15,7 @@ router.get('/', async (req, res) =>{
 
         const posts = dbPostData.map((e) => 
             e.get({plain: true})
+            
         );
         res.render('homepage', {
             posts,
@@ -50,6 +51,7 @@ router.get('/comment', (req, res) => {
 })
 
 router.post('/comment', async(req, res) =>{
+    console.log(req.body)
         try {
           const dbCommentData = await Comment.create({
             creator: req.body.creator,
@@ -57,7 +59,7 @@ router.post('/comment', async(req, res) =>{
           });
           res.status(200).json(dbCommentData);
       
-          // Set up sessions with a 'loggedIn' variable set to `true`
+
 
         } catch (err) {
           console.log(err);

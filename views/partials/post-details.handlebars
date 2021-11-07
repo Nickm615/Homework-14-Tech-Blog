@@ -1,7 +1,7 @@
 <section class = 'card'>
     <header>{{title}}</header>
     <p>{{content}}</p>
-    <p>Created by {{user.name}} at {{createdAt}}</p>
+    <p>Created by {{user.name}} at {{format_date createdAt}}</p>
     {{!-- console.log({{created_at}}) --}}
     {{!-- <button id='comment' class='btn-block'>Leave a comment</button> --}}
     <a href="/comment">Leave a comment</a>
