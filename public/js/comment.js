@@ -2,13 +2,16 @@ const commentFormHandler = async (event) => {
     event.preventDefault();
 
     const content = document.querySelector('#comment').value.trim();
-    const creator = req.session.name
-    console.log('content ='+content)
+    // const creator = req.session.name
+    // console.log('==============================================================')
+    // console.log(content)
+    // console.log('==============================================================')
+
 
     if (content) {
-        const response = await fetch('/comment', {
+        const response = await fetch('/api/comments', {
             method: 'POST',
-            body: JSON.stringify({content, creator}),
+            body: JSON.stringify({content}),
             headers: { 'Content-Type': 'application/json'},
         })
 
@@ -18,9 +21,9 @@ const commentFormHandler = async (event) => {
             alert('Failed to post')
         }
     }
-    // const creator = document.querySelector('#')
+
 };
 
 document
-    .querySelector('#comment')
+    .querySelector('#comment-form')
     .addEventListener('submit', commentFormHandler);

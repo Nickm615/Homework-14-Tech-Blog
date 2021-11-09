@@ -43,28 +43,27 @@ router.get('/dashboard', (req, res) => {
 })
 
 
-router.get('/comment', (req, res) => {
+router.get('/comments', (req, res) => {
     if (req.session.loggedIn) {
         res.render('comment')
         return
     } else res.render('login')
 })
 
-router.post('/comment', async(req, res) =>{
-    console.log(req.body)
-        try {
-          const dbCommentData = await Comment.create({
-            creator: req.body.creator,
-            content: req.body.content
-          });
-          res.status(200).json(dbCommentData);
-      
-
-
-        } catch (err) {
-          console.log(err);
-          res.status(500).json(err);
+router.get('/post/:id', async (req, res)=>{
+    const dbPostData = await Post.findOne({
+        where: { id: req.params.id },
+        include: {
+            model: User,
+            attributes: ['name'],
         }
-      });
+    }) 
+    console.log(typeof dbPostData)
+    console.log(dbPostData)
+    let post = dbPostData.get({plain: true});
+    res.render('post', {
+        post
+    })
+})
 
 module.exports = router;
