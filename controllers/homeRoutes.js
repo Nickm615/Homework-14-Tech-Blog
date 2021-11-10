@@ -58,10 +58,11 @@ router.get('/post/:id', async (req, res)=>{
             attributes: ['name'],
         }
     }) 
-    console.log(typeof dbPostData)
-    console.log(dbPostData)
+    // console.log(typeof dbPostData)
+    console.log(dbPostData.get())
     let post = dbPostData.get({plain: true});
-    res.render('partials/post-details', {
+    console.log(post)
+    res.render('post', {
         post
     })
 })
