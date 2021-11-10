@@ -1,14 +1,15 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
 
-router.post('/comments', async(req, res) =>{
+router.post('/comments:id', async(req, res) =>{
   console.log('======================================================')
     console.log(req.body.content + 'hey')
     console.log('====================================================')
         try {
           const dbCommentData = await Comment.create({
             creator: req.session.name,
-            content: req.body.content
+            content: req.body.content,
+            originalPost: req.params.id
           });
           res.status(200).json(dbCommentData);
       

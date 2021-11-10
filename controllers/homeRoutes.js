@@ -43,7 +43,7 @@ router.get('/dashboard', (req, res) => {
 })
 
 
-router.get('/comments', (req, res) => {
+router.get('/comments/1', (req, res) => {
     if (req.session.loggedIn) {
         res.render('comment')
         return
