@@ -42,6 +42,12 @@ router.get('/dashboard', (req, res) => {
     } else res.render('login')
 })
 
+router.get('/newPost', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('newPost')
+        return
+    } else res.render('login')
+})
 
 router.get('/comments/1', (req, res) => {
     if (req.session.loggedIn) {

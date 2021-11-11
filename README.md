@@ -5,9 +5,8 @@ Routes correctly to homepage and displays seeded posts using the post details pa
 nav links redirect to login screen if user is not logged in
 routes to create user and login work, and update the session accordingly
 The page displays the logout option if user is logged in and that option logs the user out and sets session variable to false
-I'm so close to having comments working I just couldn't quite get there. All the functionality is there I just need a little more time bug hunting to get it actually working.
+I'm so close to having comments working I just couldn't quite get there. All the functionality is there I just need a little more time bug hunting to get it actually working.6
 
-The large issue is that while this app works on my local host it does not display any posts when live on heroku. I don't know why, maybe it doesn't have access to my local databases? I don't know how to fix this issue. Here is a link to an example video taken using my locally hosted app that works: https://watch.screencastify.com/v/C6Uc614jBt6kN7JNp5zy
+The large issue is that while this app works on my local host it does not display any posts when live on heroku. I don't know why, maybe it doesn't have access to my local databases? I don't know how to fix this issue. Here is a link to an example video: https://watch.screencastify.com/v/C6Uc614jBt6kN7JNp5zy
 
-I will be returning to this assignment once our project week concludes. I liked working on it and I know its a very valuable example for employers. Thanks for reading/watching.
 
